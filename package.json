@@ -1,0 +1,11 @@
+{
+  "name": "unsafe-bookmarklet",
+  "version": "1.0.0",
+  "description": "bookmarklet test",
+  "main": "unsafe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wilco Fiers",
+  "license": "ISC"
+}
