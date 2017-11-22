@@ -6,4 +6,4 @@ This is a **TEST** to see how much you can compromise through a bookmarklet
 
 Save the following link to your bookmarklet:
 
-<a href="javascript:(function () { var s=document.createElement('script'); s.setAttribute('src', 'https://wilcofiers.github.com/unsafe-bookmarklet/unsafe.js'); document.body.appendChild(jsCode);}());">Unsafe bookmarklet</a>
+<a href="https://wilcofiers.github.com/unsafe-bookmarklet/install.html">Unsafe bookmarklet</a>
