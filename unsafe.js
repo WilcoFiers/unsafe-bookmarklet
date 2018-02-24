@@ -1,6 +1,6 @@
-let myPrompt = function (name, data) {
+let myPrompt = function (data, name) {
   if ((Array.isArray(data) && data.length > 0) ||
-      typeof data === 'object' && Object.keys(data).length > 0) {
+      (typeof data === 'object' && Object.keys(data).length > 0)) {
     alert(`Found ${name}\n\n` + JSON.stringify(data))
     return false
   } else {
