@@ -24,7 +24,7 @@ for (const key in sessionStorage) {
 
 const permissions = []
 Promise.all([
-    'geolocation', 'midi', 'notifications', 'push',
+    'geolocation', 'midi', 'notifications', //'push',
     'persistent-storage', 'camera', 'microphone'
   ].map(name => {
     return navigator.permissions.query({ name })
