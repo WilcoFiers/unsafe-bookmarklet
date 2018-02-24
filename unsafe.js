@@ -36,9 +36,9 @@ Promise.all([
   })
 ).then(permissions => {
   [
-    myPrompt(cookies, 'Cookies')
-    myPrompt(local, 'Local storage')
-    myPrompt(session, 'Session storage')
+    myPrompt(cookies, 'Cookies'),
+    myPrompt(local, 'Local storage'),
+    myPrompt(session, 'Session storage'),
     myPrompt(permissions, 'permissions')
   ].every(() => {
     alert('Nothing found, nothing to steal. Congrats')
