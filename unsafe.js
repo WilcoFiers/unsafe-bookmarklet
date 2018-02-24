@@ -11,19 +11,19 @@ let myPrompt = function (data, name) {
 let cookies = document.cookie.split(';')
   .reduce((cookies, item) => {
     var split = item.split('=')
-    cookies[split[0]] = split[1]
+    cookies[split[0].trim()] = split[1]
     return cookies
   }, {});
 
-let local = {}
-for (let key in localStorage) {
+let local = Object.keys(localStorage).reduce((local, keys) => {
   local[key] = localStorage.getItem(key)
-}
+  return local
+}, {})
 
-let session = {}
-for (let key in sessionStorage) {
-  session[key] = sessionStorage.getItem(key)
-}
+let session = Object.keys(sessionStorage).reduce((session, keys) => {
+  session[key] = localStorage.getItem(key)
+  return session
+}, {})
 
 let permissions = []
 Promise.all([
