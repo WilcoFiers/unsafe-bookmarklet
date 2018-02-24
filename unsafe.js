@@ -15,7 +15,7 @@ let cookies = document.cookie.split(';')
     return cookies
   }, {});
 
-let local = Object.keys(localStorage).reduce((local, keys) => {
+let local = Object.keys(localStorage).reduce((local, key) => {
   local[key] = localStorage.getItem(key)
   return local
 }, {})
