@@ -10,8 +10,8 @@ let myPrompt = function (name, data) {
 
 let cookies = document.cookie.split(';')
   .reduce((cookies, item) => {
-    item.split('=')
-    cookies[item[0]] = item[1]
+    var split = item.split('=')
+    cookies[split[0]] = split[1]
     return cookies
   }, {});
 
