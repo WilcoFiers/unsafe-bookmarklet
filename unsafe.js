@@ -28,7 +28,7 @@ Promise.all([
   ].map(name => {
     return navigator.permissions.query({ name })
       .then(({ state }) => {
-        if (state === granted) permissions.push(name)
+        if (state === 'granted') permissions.push(name)
       })
   })
 ).then(permissions => {
