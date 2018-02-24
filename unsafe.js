@@ -1,10 +1,10 @@
+'strict mode';
 let myPrompt = function (data, name) {
   if ((Array.isArray(data) && data.length > 0) ||
       (typeof data === 'object' && Object.keys(data).length > 0)) {
-    alert(`Found ${name}\n\n` + JSON.stringify(data))
-    return false
+    alert(`Found ${name}:\n\n` + JSON.stringify(data, null, '  '))
   } else {
-    return true
+    return false
   }
 }
 
@@ -34,13 +34,13 @@ Promise.all([
         if (state === 'granted') permissions.push(name)
       })
   })
-).then(permissions => {
-  [
+).then(() => {
+  if ([
     myPrompt(cookies, 'Cookies'),
     myPrompt(local, 'Local storage'),
     myPrompt(session, 'Session storage'),
     myPrompt(permissions, 'permissions')
-  ].every(() => {
+  ].every(i => i === false)) {
     alert('Nothing found, nothing to steal. Congrats')
-  })
+  }
 })
