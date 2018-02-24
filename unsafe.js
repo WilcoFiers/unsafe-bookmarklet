@@ -5,9 +5,9 @@ const myPrompt = function (name, data) {
   }
 }
 
-const cookies = document.cookie.splice(';')
+const cookies = document.cookie.split(';')
   .forEach((cookies, item) => {
-    item.splice('=');
+    item.split('=');
     cookies[item[0]] = item[1];
   }, {});
 
