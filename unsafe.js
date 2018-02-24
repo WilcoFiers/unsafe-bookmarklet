@@ -1,24 +1,25 @@
 const myPrompt = function (name, data) {
   if ((Array.isArray(data) && data.length > 0) ||
       typeof data === 'object' && Object.keys(data).length > 0) {
-    alert(`Found ${name}\n\n` + JSON.stringify(data));
+    alert(`Found ${name}\n\n` + JSON.stringify(data))
   }
 }
 
 const cookies = document.cookie.split(';')
   .reduce((cookies, item) => {
-    item.split('=');
-    cookies[item[0]] = item[1];
+    item.split('=')
+    cookies[item[0]] = item[1]
+    return cookies
   }, {});
 
 const local = {}
-for (const key in localStorage){
-  local[key] = localStorage.getItem(key);
+for (const key in localStorage) {
+  local[key] = localStorage.getItem(key)
 }
 
 const session = {}
-for (const key in sessionStorage){
-  session[key] = sessionStorage.getItem(key);
+for (const key in sessionStorage) {
+  session[key] = sessionStorage.getItem(key)
 }
 
 const permissions = []
