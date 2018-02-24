@@ -1,28 +1,31 @@
-const myPrompt = function (name, data) {
+let myPrompt = function (name, data) {
   if ((Array.isArray(data) && data.length > 0) ||
       typeof data === 'object' && Object.keys(data).length > 0) {
     alert(`Found ${name}\n\n` + JSON.stringify(data))
+    return false
+  } else {
+    return true
   }
 }
 
-const cookies = document.cookie.split(';')
+let cookies = document.cookie.split(';')
   .reduce((cookies, item) => {
     item.split('=')
     cookies[item[0]] = item[1]
     return cookies
   }, {});
 
-const local = {}
-for (const key in localStorage) {
+let local = {}
+for (let key in localStorage) {
   local[key] = localStorage.getItem(key)
 }
 
-const session = {}
-for (const key in sessionStorage) {
+let session = {}
+for (let key in sessionStorage) {
   session[key] = sessionStorage.getItem(key)
 }
 
-const permissions = []
+let permissions = []
 Promise.all([
     'geolocation', 'notifications', 'camera', 'microphone'
   ].map(name => {
@@ -32,8 +35,12 @@ Promise.all([
       })
   })
 ).then(permissions => {
-  myPrompt(cookies, 'Cookies')
-  myPrompt(local, 'Local storage')
-  myPrompt(session, 'Session storage')
-  myPrompt(permissions, 'permissions')
+  [
+    myPrompt(cookies, 'Cookies')
+    myPrompt(local, 'Local storage')
+    myPrompt(session, 'Session storage')
+    myPrompt(permissions, 'permissions')
+  ].every(() => {
+    alert('Nothing found, nothing to steal. Congrats')
+  })
 })
