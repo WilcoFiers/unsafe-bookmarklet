@@ -20,7 +20,7 @@ let local = Object.keys(localStorage).reduce((local, key) => {
   return local
 }, {})
 
-let session = Object.keys(sessionStorage).reduce((session, keys) => {
+let session = Object.keys(sessionStorage).reduce((session, key) => {
   session[key] = localStorage.getItem(key)
   return session
 }, {})
